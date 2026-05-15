@@ -1,0 +1,13 @@
+int countDigit(int n) {
+        int countDigit=0;
+        if(n==0){
+            return 0;
+        }
+        while(n>0){
+            countDigit+=1;
+            n=n/10;
+        }
+        return countDigit;
+
+    }
+};
