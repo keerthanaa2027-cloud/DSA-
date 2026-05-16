@@ -1,0 +1,21 @@
+
+class Solution {
+public:
+    bool isArmstrong(int n) {
+        if(n==0){
+            return 0;
+        }
+        int sum=0;
+        int duplicate=n;
+        while(n>0){
+            int digit=n%10;
+            sum=sum+(digit*digit*digit);
+            n=n/10;
+        }
+        if(sum==duplicate){
+            return true;
+        }else{
+            return false;
+        }
+    }
+};
