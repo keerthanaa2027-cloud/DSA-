@@ -1,0 +1,22 @@
+
+class Solution {
+public:
+    int secondLargestElement(vector<int>& nums) {
+        int largestElement=INT_MIN;
+        int secondLargestElement=INT_MIN;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>largestElement){
+                secondLargestElement=largestElement;
+                largestElement=nums[i];
+            }else if (nums[i]<largestElement &&nums[i]>secondLargestElement){
+                secondLargestElement=nums[i];
+            }
+        }
+        if(secondLargestElement==INT_MIN){
+            return -1;
+        }
+        return secondLargestElement;
+       
+      
+    }
+};
