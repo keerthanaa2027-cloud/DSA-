@@ -1,0 +1,10 @@
+int singleNumber(vector<int>& nums){
+        int res=0;
+        for(int values:nums){
+            res=res^values;
+
+        }
+        return res;
+      
+    }
+};
