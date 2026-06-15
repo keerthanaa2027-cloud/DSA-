@@ -1,0 +1,31 @@
+lic:
+    long long maximumSubarraySum(vector<int>& nums, int k) {
+         unordered_map<int, int> mp;
+        long long windowSum = 0;
+        long long maxSum = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            windowSum += nums[i];
+            mp[nums[i]]++;
+
+            if (i >= k) {
+                windowSum -= nums[i - k];
+
+                mp[nums[i - k]]--;
+
+                if (mp[nums[i - k]] == 0) {
+                    mp.erase(nums[i - k]);
+                }
+            }
+
+            if (i >= k - 1) {
+                if (mp.size() == k) {
+                    maxSum = max(maxSum, windowSum);
+                }
+            }
+        }
+
+        return maxSum;
+       
+    }
+};
